@@ -1,4 +1,14 @@
 #!/bin/bash
+
+sed -i '/deb-src/s/^# //' /etc/apt/sources.list
+apt update
+
+mkdir ~/sources
+pushd ~/sources
+apt source glibc
+popd
+
+
 apt install -y \
     build-essential \
     autoconf \
@@ -30,3 +40,11 @@ ln -s $(pwd)/issues/tp-5487/sshd_config.d/test-tp-certificate.conf /etc/ssh/sshd
 
 sudo systemctl restart ssh
 sudo systemctl status ssh
+
+
+mkdir -p /usr/local/bin/
+ln /usr/bin/pinentry /usr/local/bin/pinentry
+
+
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+

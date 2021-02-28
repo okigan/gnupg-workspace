@@ -3,5 +3,8 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"C_Cpp.clang_format_fallbackStyle": "GNU"
+	}
 }
