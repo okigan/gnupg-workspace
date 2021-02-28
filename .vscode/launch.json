@@ -4,52 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-                "name": "(gdb) Launch ssh-add -L",
-                "type": "cppdbg",
-                "request": "launch",
-                "program": "${workspaceFolder}/openssh/openssh-portable/ssh-add",
-                "args": [
-                    "-L"
-                ],
-                "stopAtEntry": false,
-                "cwd": "${workspaceFolder}",
-                "environment": [ 
-                    { "name": "SSH_AUTH_SOCK",
-                        "value": "/run/user/1000/gnupg/S.gpg-agent.ssh"
-                         } ],
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    }
-                ]
-            },
-            {
-                "name": "(gdb) Launch ssh-add ~/keys2/id_rsa",
-                "type": "cppdbg",
-                "request": "launch",
-                "program": "${workspaceFolder}/openssh/openssh-portable/ssh-add",
-                "args": [
-                    "/home/igor/keys2/id_rsa"
-                ],
-                "stopAtEntry": false,
-                "cwd": "${workspaceFolder}",
-                "environment": [ 
-                    { "name": "SSH_AUTH_SOCK",
-                        "value": "/run/user/1000/gnupg/S.gpg-agent.ssh"
-                         } ],
-                "MIMode": "gdb",
-                "setupCommands": [
-                    {
-                        "description": "Enable pretty-printing for gdb",
-                        "text": "-enable-pretty-printing",
-                        "ignoreFailures": true
-                    }
-                ]
-            },
                 {
             "name": "(gdb) Attach gpg-agent",
             "type": "cppdbg",
@@ -73,7 +27,7 @@
                 "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include/i686-linux-gnu": "/usr/include/i686-linux-gnu/c++/4.8",
                 "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include": "/usr/include/c++/4.8",
                 "xxxx./build/src/../../src/": "/home/igor/sources/libgpg-error-1.37/src/",
-                "./build/src/../../src/": "/home/igor/sources/libgcrypt20-1.8.5/src/"
+                "./build/src/../../src/": "/home/igor/sources/libgcrypt20-1.8.5/src/",
                 "/build/glibc-eX1tMB/glibc-2.31/" : "/home/igor/sources/glibc-2.31/"
             }
         },
