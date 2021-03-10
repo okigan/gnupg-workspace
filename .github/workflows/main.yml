@@ -11,7 +11,10 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
 
     steps:
+      - uses: actions/checkout@v1
       - name: step1
-        run: |
-          ./install.sh
-          ./build.sh
+        run: bash -c "pwd;  ls -la"
+      - name: install dependencies
+        run: bash ./install.sh
+      - name: build binaries
+        run: bash ./build.sh
