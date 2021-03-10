@@ -1,1 +1,3 @@
 build-gnupg/**
+issues/tp-5487/test_*
+test_cert_support_*
