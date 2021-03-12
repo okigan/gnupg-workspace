@@ -33,13 +33,13 @@ apt install -y \
 
 
 
-ln -s $(pwd)/issues/tp-5487/sshd_config.d/ca.pub /etc/ssh/sshd_config.d/ca.pub
-ln -s $(pwd)/issues/tp-5487/sshd_config.d/host_id_rsa /etc/ssh/sshd_config.d/host_id_rsa
-ln -s $(pwd)/issues/tp-5487/sshd_config.d/host_id_rsa-cert.pub /etc/ssh/sshd_config.d/host_id_rsa-cert.pub
-ln -s $(pwd)/issues/tp-5487/sshd_config.d/test-tp-certificate.conf /etc/ssh/sshd_config.d/test-tp-certificate.conf
+# ln -s $(pwd)/issues/tp-5487/sshd_config.d/ca.pub /etc/ssh/sshd_config.d/ca.pub
+# ln -s $(pwd)/issues/tp-5487/sshd_config.d/host_id_rsa /etc/ssh/sshd_config.d/host_id_rsa
+# ln -s $(pwd)/issues/tp-5487/sshd_config.d/host_id_rsa-cert.pub /etc/ssh/sshd_config.d/host_id_rsa-cert.pub
+# ln -s $(pwd)/issues/tp-5487/sshd_config.d/test-tp-certificate.conf /etc/ssh/sshd_config.d/test-tp-certificate.conf
 
-sudo systemctl restart ssh
-sudo systemctl status ssh
+# sudo systemctl restart ssh
+# sudo systemctl status ssh
 
 
 mkdir -p /usr/local/bin/
