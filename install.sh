@@ -8,7 +8,10 @@ set -o xtrace
 sed -i '/deb-src/s/^# //' /etc/apt/sources.list
 apt update
 
-mkdir ~/sources
+apt install -y dpkg-dev
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
+
+mkdir -p ~/sources
 pushd ~/sources
 apt source glibc
 popd
@@ -48,7 +51,7 @@ apt install -y \
 
 
 mkdir -p /usr/local/bin/
-ln /usr/bin/pinentry /usr/local/bin/pinentry
+ln /usr/bin/pinentry /usr/local/bin/pinentry 
 
 
 echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope

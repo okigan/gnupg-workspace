@@ -86,5 +86,9 @@ pushd build-gnupg
     # CFLAGS="-ggdb3 -O0 -DDEBUG -fsanitize=address  -fno-omit-frame-pointer" 
 
 make
+
+export PATH=$(pwd)/../install-root/bin:$PATH
+export LD_LIBRARY_PATH=$(pwd)/../install-root/lib:$LD_LIBRARY_PATH
+
 make check
 popd
