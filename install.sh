@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -o errexit
+set -o pipefail
+set -o nounset
+set -o xtrace
+
 sed -i '/deb-src/s/^# //' /etc/apt/sources.list
 apt update
 

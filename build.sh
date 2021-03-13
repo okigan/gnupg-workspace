@@ -5,6 +5,8 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 
+export MAGICK_CONFIGURE_PATH=$(pwd)/.config/ImageMagick
+
 mkdir -p build-deps
 pushd build-deps
 
