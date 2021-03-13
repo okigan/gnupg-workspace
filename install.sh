@@ -8,19 +8,19 @@ pushd ~/sources
 apt source glibc
 popd
 
-
+#    libgpg-error-dev \
+#    libgcrypt-dev \
+#    libassuan-dev \
+#    libksba-dev \
+#    libnpth-dev \
 apt install -y \
     build-essential \
     autoconf \
     automake \
     libtool \
     gettext \
-#    libgpg-error-dev \
-#    libgcrypt-dev \
-#    libassuan-dev \
-#    libksba-dev \
-#    libnpth-dev \
     imagemagick \
+    gsfonts \
     transfig \
     texinfo \
     openssh-server
