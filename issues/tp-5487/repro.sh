@@ -128,3 +128,7 @@ done
 # ssh -o "UserKnownHostsFile known_host_file" 0.0.0.0 -p 2345 exit 13
 # echo $?
 
+
+#make -f build-aux/speedo.mk  native SELFCHECK=0 
+#make -f build-aux/speedo.mk  native SELFCHECK=0 STATIC=1
+#export LD_LIBRARY_PATH=/home/igor/git/gnupg-workspace/gnupg/PLAY/inst/bin/../lib
