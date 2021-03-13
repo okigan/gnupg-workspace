@@ -78,6 +78,7 @@ pushd build-gnupg
     --with-libgcrypt-prefix=$(pwd)/../install-root \
     --with-libgpg-error-prefix=$(pwd)/../install-root \
     --with-libassuan-prefix=$(pwd)/../install-root \
+    --with-npth-prefix=$(pwd)/../install-root \
     --enable-maintainer-mode \
     CFLAGS="-ggdb3 -O0 -DDEBUG -fsanitize=address  -fno-omit-frame-pointer" 
 
