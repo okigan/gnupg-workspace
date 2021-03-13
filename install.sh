@@ -15,11 +15,11 @@ apt install -y \
     automake \
     libtool \
     gettext \
-    libgpg-error-dev \
-    libgcrypt-dev \
-    libassuan-dev \
-    libksba-dev \
-    libnpth-dev \
+#    libgpg-error-dev \
+#    libgcrypt-dev \
+#    libassuan-dev \
+#    libksba-dev \
+#    libnpth-dev \
     imagemagick \
     transfig \
     texinfo \
