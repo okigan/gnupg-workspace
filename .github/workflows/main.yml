@@ -21,5 +21,7 @@ jobs:
         run: sudo bash ./install.sh
       - name: build binaries
         run: bash ./build.sh
-      - name: run tests
+      - name: check binaries
+        run: bash ./check.sh
+      - name: test changes
         run: bash ./test.sh

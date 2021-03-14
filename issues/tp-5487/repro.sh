@@ -32,14 +32,16 @@ do
     echo generate client key
     # ssh-keygen -t ${key_type} -f id_${key_type} -b 2048 -q -N ""
     ssh-keygen -t ${key_type} -f id_${key_type} -q -N ""
-    ssh-keygen -s ca -I user_key -n $USER -V +52w id_${key_type} 
+    ssh-keygen -s ca -I user_key -n $(whoami) -V +52w id_${key_type} 
     ssh-keygen -L -f id_${key_type}-cert.pub
 
     echo generate host key
     # ssh-keygen -t ${key_type} -f host_id_${key_type} -b 2048 -q -N ""
     ssh-keygen -t ${key_type} -f host_id_${key_type}  -q -N ""
     ssh-keygen -s ca -I host_key -h host_id_${key_type}
-    ssh-keygen -L -f host_id_${key_type}-cert.pub 
+    ssh-keygen -L -f host_id_${key_type}-cert.pub
+
+    mkdir -p /run/sshd 
 
     echo generate know_host_file
     $(which sshd) -d -f /dev/null -p 2345 \

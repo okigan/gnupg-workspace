@@ -3,3 +3,8 @@ issues/tp-5487/test_*
 test_cert_support_*
 install-root/**
 build-deps/**
+libassuan/**
+libgcrypt/**
+libgpg-error/**
+libksba/**
+npth/**
