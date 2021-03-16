@@ -62,5 +62,4 @@ if [ ! -f /usr/local/bin/pinentry ]; then
     ln /usr/bin/pinentry /usr/local/bin/pinentry 
 fi
 
-echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-
+echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope || true

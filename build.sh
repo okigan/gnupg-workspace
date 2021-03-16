@@ -5,7 +5,17 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 
-export MAGICK_CONFIGURE_PATH=$(pwd)/.config/ImageMagick
+#imagemagick is awesome at not using local overrides, but does use user level override (bug)
+#export MAGICK_CONFIGURE_PATH=$(pwd)/.config/ImageMagick
+mkdir -p ~/.config/ImageMagick/
+cat <<EOF > ~/.config/ImageMagick/policy.xml
+<policymap>
+    <policy domain="coder" rights="read|write" pattern="PDF" />
+</policymap>
+EOF
+convert logo: logo: logo:  out.pdf
+
+
 
 mkdir -p build-deps
 pushd build-deps
