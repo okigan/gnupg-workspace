@@ -11,10 +11,17 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.REPO_PAT }}
+          submodules: true
       - name: step1
         run: bash -c "pwd;  ls -la"
       - name: install dependencies
-        run: bash ./install.sh
+        run: sudo bash ./install.sh
       - name: build binaries
         run: bash ./build.sh
+      - name: check binaries
+        run: bash ./check.sh
+      - name: test changes
+        run: bash ./test.sh
