@@ -13,7 +13,6 @@ cat <<EOF > ~/.config/ImageMagick/policy.xml
     <policy domain="coder" rights="read|write" pattern="PDF" />
 </policymap>
 EOF
-convert logo: logo: logo:  out.pdf
 
 
 
