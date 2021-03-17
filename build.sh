@@ -1,4 +1,5 @@
-#!/bin/env bash
+#!/bin/bash
+
 set -o errexit
 set -o pipefail
 set -o nounset
@@ -12,7 +13,6 @@ cat <<EOF > ~/.config/ImageMagick/policy.xml
     <policy domain="coder" rights="read|write" pattern="PDF" />
 </policymap>
 EOF
-convert logo: logo: logo:  out.pdf
 
 
 
@@ -83,7 +83,12 @@ popd
 popd
 
 
+pushd gnupg
+./autogen.sh
+popd
+
 mkdir -p build-gnupg
+pushd build-gnupg
 #LDFLAGS='-L$(pwd)/../install-root/lib'
  #   --with-ksba-prefix=$(pwd)/../install-root \
  
@@ -97,6 +102,9 @@ mkdir -p build-gnupg
     --with-libksba-prefix=$(pwd)/../install-root \
     --enable-maintainer-mode 
     # \
+    # CFLAGS="-ggdb3 -O0 -DDEBUG -fsanitize=address  -fno-omit-frame-pointer" 
+
+make
 
 
-
+popd
