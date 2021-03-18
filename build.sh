@@ -8,23 +8,20 @@ set -o xtrace
 #imagemagick is awesome at not using local overrides, but does use user level override (bug)
 #export MAGICK_CONFIGURE_PATH=$(pwd)/.config/ImageMagick
 mkdir -p ~/.config/ImageMagick/
-cat <<EOF > ~/.config/ImageMagick/policy.xml
+cat <<EOF >~/.config/ImageMagick/policy.xml
 <policymap>
     <policy domain="coder" rights="read|write" pattern="PDF" />
 </policymap>
 EOF
-
-
 
 mkdir -p build-deps
 pushd build-deps
 
 #order="npth libgpg-error libassuan libksba libgcrypt gnupg"
 
-
 wget -nc ftp://ftp.gnupg.org/gcrypt/npth/npth-1.2.tar.bz2
 tar xf npth-1.2.tar.bz2
-pushd npth-1.2  
+pushd npth-1.2
 ./configure -prefix=$(pwd)/../../install-root
 make
 make install
@@ -49,8 +46,6 @@ pushd libassuan-2.5.4
 make
 make install
 popd
-
-
 
 wget -nc https://gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2
 tar xf libksba-1.3.5.tar.bz2
@@ -82,7 +77,6 @@ popd
 
 popd
 
-
 pushd gnupg
 ./autogen.sh
 popd
@@ -90,8 +84,8 @@ popd
 mkdir -p build-gnupg
 pushd build-gnupg
 #LDFLAGS='-L$(pwd)/../install-root/lib'
- #   --with-ksba-prefix=$(pwd)/../install-root \
- 
+#   --with-ksba-prefix=$(pwd)/../install-root \
+
 ../gnupg/configure \
     --prefix=$(pwd)/../install-root \
     --with-libgcrypt-prefix=$(pwd)/../install-root \
@@ -100,11 +94,9 @@ pushd build-gnupg
     --with-npth-prefix=$(pwd)/../install-root \
     --with-ksba-prefix=$(pwd)/../install-root \
     --with-libksba-prefix=$(pwd)/../install-root \
-    --enable-maintainer-mode 
-    # \
-    # CFLAGS="-ggdb3 -O0 -DDEBUG -fsanitize=address  -fno-omit-frame-pointer" 
+    --enable-maintainer-mode
+# CFLAGS="-DDEBUG -fsanitize=address -fno-omit-frame-pointer -static-libasan -ggdb3 -O0"
 
 make
-
 
 popd
