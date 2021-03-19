@@ -1,3 +1,4 @@
 [submodule "gnupg"]
 	path = gnupg
 	url = https://github.com/okigan/gnupg
+	branch = feature/tp-5487-on-2.2.24
