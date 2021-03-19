@@ -11,10 +11,12 @@ mkdir -p ~/.config/ImageMagick/
 cat <<EOF > ~/.config/ImageMagick/policy.xml
 <policymap>
     <policy domain="coder" rights="read|write" pattern="PDF" />
+    <policy domain="coder" rights="read|write" pattern="EPS" />
 </policymap>
 EOF
-#check that policy worked
+# check policy worked
 convert logo: out.pdf && rm out.pdf
+convert logo: out.eps && rm out.eps
 
 
 mkdir -p build-deps
