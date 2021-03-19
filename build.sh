@@ -13,6 +13,8 @@ cat <<EOF >~/.config/ImageMagick/policy.xml
     <policy domain="coder" rights="read|write" pattern="PDF" />
 </policymap>
 EOF
+#check that policy worked
+convert logo: out.pdf && rm out.pdf
 
 mkdir -p build-deps
 pushd build-deps
