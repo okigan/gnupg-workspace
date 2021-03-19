@@ -57,7 +57,7 @@ for key_type in "${key_types[@]}"; do
     eval "$(ssh-agent -s)"
     ssh-add -D
     ssh-add -L || true # if [-z  (command))
-    ssh-add $(pwd)/id_${key_type}
+    ssh-add -k $(pwd)/id_${key_type}
     ssh-add -L
 
     echo test with ssh-agent
@@ -76,7 +76,7 @@ for key_type in "${key_types[@]}"; do
     eval $(${THIS_SCRIPT_DIR}/../../build-gnupg/agent/gpg-agent --verbose --verbose --homedir $(pwd) --enable-ssh-support --daemon --batch)
     ssh-add -D
     ssh-add -L || true
-    ssh-add id_${key_type}
+    ssh-add -k $(pwd)/id_${key_type}
     ssh-add -L
 
     $(which sshd) -d -f /dev/null -p 2345 \
