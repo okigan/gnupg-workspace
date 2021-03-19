@@ -76,7 +76,7 @@ for key_type in "${key_types[@]}"; do
     eval $(${THIS_SCRIPT_DIR}/../../build-gnupg/agent/gpg-agent --verbose --verbose --homedir $(pwd) --enable-ssh-support --daemon --batch)
     ssh-add -D
     ssh-add -L || true
-    ssh-add id_${key_type}
+    ssh-add $(pwd)/id_${key_type}
     ssh-add -L
 
     $(which sshd) -d -f /dev/null -p 2345 \
@@ -100,22 +100,6 @@ for key_type in "${key_types[@]}"; do
 
     popd
 done
-
-# gpg-connect-agent 'getinfo version' /bye
-# # ouch gpg stores key in cache that persists across reboots
-# # needs to be clean out manually with:
-# # gpg-connect-agent 'keyinfo --list' /bye
-# # gpg-connect-agent 'delete_key ...;
-# # possibly (arg!) gpg --delete-secret-keys  FB5638933DF2C76365DD3DEBF300F05914337732
-# # possibly (arg!) gpg --delete-keys  FB5638933DF2C76365DD3DEBF300F05914337732
-# export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-# ssh-add -D
-# ssh-add -L || true
-# ssh-add id_{key_type}
-# ssh-add -L
-
-# ssh -o "UserKnownHostsFile known_host_file" 0.0.0.0 -p 2345 exit 13
-# echo $?
 
 # debugging commands
 # systemctl --user stop gpg-agent gpg-agent-ssh.socket gpg-agent.socket gpg-agent-browser.socket gpg-agent-extra.socket
