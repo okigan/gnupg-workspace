@@ -5,6 +5,7 @@ set -o pipefail
 set -o nounset
 set -o xtrace
 
+git submodule foreach -q --recursive 'branch="$(git config -f $toplevel/.gitmodules submodule.$name.branch)"; git switch $branch'
 
 #docker run -it --volume $(pwd):/home/project ubuntu:latest
 

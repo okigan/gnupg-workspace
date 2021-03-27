@@ -8,6 +8,7 @@ set -o xtrace
 export PATH=$(pwd)/install-root/bin:$PATH
 export LD_LIBRARY_PATH=$(pwd)/install-root/lib
 
+gpg --version
 
 pushd ./build-gnupg
 make check
