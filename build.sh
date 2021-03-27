@@ -11,6 +11,7 @@ mkdir -p ~/.config/ImageMagick/
 cat <<EOF > ~/.config/ImageMagick/policy.xml
 <policymap>
     <policy domain="coder" rights="read|write" pattern="PDF" />
+    <policy domain="coder" rights="read|write" pattern="EPS" />
 </policymap>
 EOF
 
