@@ -8,7 +8,7 @@ set -o xtrace
 #imagemagick is awesome at not using local overrides, but does use user level override (bug)
 #export MAGICK_CONFIGURE_PATH=$(pwd)/.config/ImageMagick
 mkdir -p ~/.config/ImageMagick/
-cat <<EOF > ~/.config/ImageMagick/policy.xml
+cat <<EOF >~/.config/ImageMagick/policy.xml
 <policymap>
     <policy domain="coder" rights="read|write" pattern="PDF" />
     <policy domain="coder" rights="read|write" pattern="EPS" />
@@ -24,7 +24,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/npth/npth-1.2.tar.bz2
 tar xf npth-1.2.tar.bz2
 pushd npth-1.2
 ./configure -prefix=$(pwd)/../../install-root
-make
+make -j
 make install
 popd
 
@@ -33,7 +33,7 @@ tar xf libgpg-error-1.41.tar.bz2
 pushd libgpg-error-1.41
 ./configure \
     --prefix=$(pwd)/../../install-root
-make
+make -j
 make install
 popd
 
@@ -44,7 +44,7 @@ pushd libassuan-2.5.4
     --prefix=$(pwd)/../../install-root \
     --with-libgpg-error-prefix=$(pwd)/../../install-root \
     --enable-maintainer-mode
-make
+make -j
 make install
 popd
 
@@ -57,7 +57,7 @@ pushd libksba-1.3.5
     --with-libassuan-prefix=$(pwd)/../../install-root \
     --enable-maintainer-mode \
     --disable-static
-make
+make -j
 make install
 popd
 
@@ -72,7 +72,7 @@ pushd libgcrypt-1.9.1
     --with-npth-prefix=$(pwd)/../../install-root \
     --enable-maintainer-mode \
     --disable-static
-make
+make -j
 make install
 popd
 
@@ -96,8 +96,8 @@ pushd build-gnupg
     --with-ksba-prefix=$(pwd)/../install-root \
     --with-libksba-prefix=$(pwd)/../install-root \
     --enable-maintainer-mode
-# CFLAGS="-DDEBUG -fsanitize=address -fno-omit-frame-pointer -static-libasan -ggdb3 -O0"
+#CFLAGS="-DDEBUG -fsanitize=address -fno-omit-frame-pointer -static-libasan -ggdb3 -O0"
 
-make
+make -j
 
 popd
